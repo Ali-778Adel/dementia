@@ -1,0 +1,29 @@
+{
+  "language": "Language",
+  "home":"home",
+  "setting":"settings",
+  "ali": "ali",
+  "themes":"Theme",
+  "themeDark":"dark",
+  "themeLight":"light",
+  "themeSystem":"system",
+  "selectLanguage":"select language",
+  "selectTheme":"select theme",
+  "settings":"Settings",
+  "loginDescription": "By logging in, you help us to identify you and maintain your tasks successfully, as you can retrieve all your registered tasks with us at any time, even if they were deleted from your database. We, the Mission Control team, always strive to make your life easier.",
+  "loginBy":"Login By",
+  "back":"back",
+  "profile":"Profile",
+  "profileData": "profile details",
+  "email":"E-mail",
+  "phoneNumber":"Phone number",
+  "userName":"User Name",
+  "edit": "edit",
+  "update": "update",
+  "logout": "logout",
+  "logOutMessage": "Do you want to logout!",
+  "yes": "yes",
+  "cancel":"cancel"
+
+
+}

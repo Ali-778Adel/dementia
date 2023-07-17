@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">"time-control"</string>
+    <string name="facebook_app_id">559180006248049</string>
+    <string name="fb_login_protocol_scheme">fb559180006248049</string>
+    <string name="facebook_client_token">ad735e31cd7cf9e02a45f75a540a85a0</string>
+</resources>

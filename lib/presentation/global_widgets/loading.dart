@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+
+import 'color_loaders.dart';
+class Loading extends StatelessWidget {
+  const Loading({this.showMessage = true});
+
+  final bool showMessage;
+
+  @override
+  Widget build(BuildContext context) {
+    return FittedBox(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children:const [
+           ColorLoader(),
+          // Visibility(
+          //   visible: showMessage,
+          //   child: Text(
+          //     'please wait ... '
+          //     // Strings.of(context)!.pleaseWait,
+          //     // style: Theme.of(context).textTheme.bodyText2,
+          //   ),
+          // ),
+        ],
+      ),
+    );
+  }
+}
