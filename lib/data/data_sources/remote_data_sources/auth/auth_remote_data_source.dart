@@ -80,11 +80,30 @@ class AuthRemoteDataSource {
         codeSent: (verificationId, [tokenId]) {
           completer.complete("codeSent$verificationId");
         },
-        timeout: const Duration(seconds: 120),
+        timeout: const Duration(seconds: 60),
         codeAutoRetrievalTimeout: (timeOut) {
           completer.complete('timeOut');
         });
     return completer.future;
+  }
+
+  Future<void> verifyPhoneNumberTest({
+    required String phoneNumber,
+    required void Function(PhoneAuthCredential) verificationCompleted,
+    required void Function(FirebaseAuthException) verificationFailed,
+    required void Function(String, int?) codeSent,
+    required void Function(String) codeAutoRetrievalTimeout,
+    required Duration timeout
+
+  }) async {
+    await sl<FirebaseAuth>().verifyPhoneNumber(
+        phoneNumber: phoneNumber,
+        verificationCompleted: verificationCompleted,
+        verificationFailed:verificationFailed,
+        codeSent:codeSent,
+        timeout: timeout,
+        codeAutoRetrievalTimeout:codeAutoRetrievalTimeout
+    );
   }
 
   ///link verified phone with current user credentials

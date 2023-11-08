@@ -77,12 +77,25 @@ return right(unit);
   }
 
   @override
-  Future<Either<Failure, String>> verifyPhoneNumber({required String phoneNumber})async {
+  Future<void> verifyPhoneNumber({
+    required String phoneNumber,
+    required void Function(PhoneAuthCredential) verificationCompleted,
+    required void Function(FirebaseAuthException) verificationFailed,
+    required void Function(String, int?) codeSent,
+    required void Function(String) codeAutoRetrievalTimeout,
+    required Duration timeout
+
+  })async {
     if(await networkInfo.isConnected){
-      final data= await authRemoteDataSource.verifyPhoneNumber(phoneNumber: phoneNumber);
-      return right(data);
+       await authRemoteDataSource.verifyPhoneNumberTest(
+          phoneNumber: phoneNumber,
+          verificationCompleted:verificationCompleted,
+          verificationFailed: verificationFailed,
+          codeSent: codeSent,
+          codeAutoRetrievalTimeout: codeAutoRetrievalTimeout,
+          timeout: timeout);
     }else{
-      return left(InternetConnectionFailure());
+      throw left(InternetConnectionFailure());
     }
   }
 

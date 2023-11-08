@@ -61,7 +61,6 @@ class AddPhoneNumberScreen extends StatelessWidget {
                             showDialog(
                                 context: context,
                                 builder: (context) {
-                                  print(state.verificationId);
                                   return ConfirmMobilePage(
                                       mobileNumber: phoneField.text,
                                        verId:state.verificationId!,
@@ -130,64 +129,60 @@ class AddPhoneNumberScreen extends StatelessWidget {
                     child: Text(
                         'By adding your phone number,you can make your friends and collaporators find you easily'),
                   ),
-                  Expanded(
-                      flex: 1,
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: TextFormField(
-                          keyboardType: TextInputType.phone,
-                          controller: phoneField,
-                          inputFormatters: <TextInputFormatter>[
-                            TextInputFormatter.withFunction(
-                                (oldValue, newValue) {
-                              return TextEditingValue(
-                                  text: newValue.text,
-                                  selection: TextSelection.collapsed(
-                                      offset: newValue.selection.end));
-                            })
-                          ],
-                          decoration: InputDecoration(
-                              icon: const Icon(Icons.phone),
-                              helperText:
-                                  'please enter your phone number \nwith your country code \n'
-                                  'ex: egypt +2 ',
-                              label: const Text('phone number'),
-                              // errorText: 'please insert right phone number',
-                              floatingLabelStyle:
-                                  Theme.of(context).textTheme.bodySmall,
-                              border: OutlineInputBorder(
-                                  gapPadding: 1.0,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10.sp)),
-                                  borderSide: const BorderSide(
-                                      color: Palette.primaryLight)),
-                              enabledBorder: OutlineInputBorder(
-                                  gapPadding: 1.0,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10.sp)),
-                                  borderSide: const BorderSide(
-                                      color: Palette.primaryLight)),
-                              errorBorder: OutlineInputBorder(
-                                  gapPadding: 1.0,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10.sp)),
-                                  borderSide:
-                                      const BorderSide(color: Palette.red)),
-                              focusedBorder: OutlineInputBorder(
-                                  gapPadding: 1.0,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10.sp)),
-                                  borderSide:
-                                      const BorderSide(color: Palette.black))),
-                        ),
-                      )),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: TextFormField(
+                      keyboardType: TextInputType.phone,
+                      controller: phoneField,
+                      inputFormatters: <TextInputFormatter>[
+                        TextInputFormatter.withFunction(
+                            (oldValue, newValue) {
+                          return TextEditingValue(
+                              text: newValue.text,
+                              selection: TextSelection.collapsed(
+                                  offset: newValue.selection.end));
+                        })
+                      ],
+                      decoration: InputDecoration(
+                          icon: const Icon(Icons.phone),
+                          helperText:
+                              'please enter your phone number \nwith your country code \n'
+                              'ex: egypt +2 ',
+                          label: const Text('phone number'),
+                          // errorText: 'please insert right phone number',
+                          floatingLabelStyle:
+                              Theme.of(context).textTheme.bodySmall,
+                          border: OutlineInputBorder(
+                              gapPadding: 1.0,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10.sp)),
+                              borderSide: const BorderSide(
+                                  color: Palette.primaryLight)),
+                          enabledBorder: OutlineInputBorder(
+                              gapPadding: 1.0,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10.sp)),
+                              borderSide: const BorderSide(
+                                  color: Palette.primaryLight)),
+                          errorBorder: OutlineInputBorder(
+                              gapPadding: 1.0,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10.sp)),
+                              borderSide:
+                                  const BorderSide(color: Palette.red)),
+                          focusedBorder: OutlineInputBorder(
+                              gapPadding: 1.0,
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10.sp)),
+                              borderSide:
+                                  const BorderSide(color: Palette.black))),
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        BlocProvider.of<OTPBloc>(context).add(
-                            VerifyPhoneNumberEvent(
-                                phoneNumber: phoneField.text));
+                        BlocProvider.of<OTPBloc>(context).add(VerifyPhoneNumberEvent(phoneNumber: phoneField.text));
                       },
                       child: const Text('ok'),
                     ),

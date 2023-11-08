@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,6 +8,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:time_control/di/dependency-injection.dart';
+import 'package:time_control/presentation/pages/auth/add_phone_number_screen.dart';
 import 'package:time_control/presentation/pages/auth/bloc/sign_in_bloc/auth_bloc.dart';
 import 'package:time_control/presentation/pages/home/home-screen.dart';
 import 'package:time_control/presentation/pages/settings/blocs/settings_main_bloc/settings_bloc.dart';
@@ -109,8 +112,8 @@ class MyApp extends StatelessWidget {
                 builder: (context,state) {
                   return OKToast(
                       child: MaterialApp(
-                        // navigatorKey: AppRoutes.mainNavigator,
-                        // initialRoute:_getInitialRoute() ,
+                        navigatorKey: AppRoutes.mainNavigator,
+                        initialRoute:_getInitialRoute() ,
                         onGenerateRoute:AppRoutes.mainCycleNavigator,
                         debugShowCheckedModeBanner: false,
                         theme: themeLight,
@@ -127,7 +130,7 @@ class MyApp extends StatelessWidget {
                           GlobalCupertinoLocalizations.delegate,
                         ],
                         supportedLocales: const [Locale('ar'), Locale('en')],
-                        home:  const NeonSplash(),
+                        // home:  const NeonSplash(),
 
                       ));
                 }
@@ -141,7 +144,12 @@ class MyApp extends StatelessWidget {
   String _getInitialRoute(){
     var userData=sl<PrefManger>().userCredentials;
     if(userData.isNotEmpty){
-      return 'homePage';
+      final userModel=json.decode(userData);
+      if(userModel['phoneNumber']==null){
+       return "phonePage";
+      }else{
+        return "homePage";
+      }
     }else{
       return '/';
     }

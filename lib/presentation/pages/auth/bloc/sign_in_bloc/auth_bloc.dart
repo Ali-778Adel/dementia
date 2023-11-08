@@ -1,3 +1,4 @@
+import 'package:firebase_admin/firebase_admin.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:time_control/presentation/pages/auth/bloc/sign_in_bloc/auth_events.dart';
 import 'package:time_control/presentation/pages/auth/bloc/sign_in_bloc/auth_states.dart';
@@ -18,6 +19,7 @@ class AuthBloc extends Bloc<AuthEvents, AuthStates> {
       switch (event.runtimeType) {
         case SignInWithGoogleEvent:
           {
+            emit(SignInWithGoogleState(authStatus:AuthStatus.loading));
             final either = await signInWithGoogleUseCase();
             either.fold(
                 (l) => emit(
@@ -32,6 +34,7 @@ class AuthBloc extends Bloc<AuthEvents, AuthStates> {
           break;
         case SignInWithFacebookEvent:
           {
+            emit(SignInWithFacebookState(authStatus: AuthStatus.loading));
             final either = await signInWithFacebookUseCase();
             either.fold(
                     (l) => emit(

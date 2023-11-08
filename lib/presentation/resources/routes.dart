@@ -15,7 +15,7 @@ class AppRoutes{
 
  static Route<dynamic>?mainCycleNavigator(RouteSettings settings){
     if(settings.name=='/'){
-      return MaterialPageRoute(builder: (context)=>const LoginPage());
+      return MaterialPageRoute(builder: (context)=> LoginPage());
     }else if(settings.name=='homePage') {
       return MaterialPageRoute(builder: (context)=>const HomeScreen());
     }else if(settings.name=='phonePage'){
