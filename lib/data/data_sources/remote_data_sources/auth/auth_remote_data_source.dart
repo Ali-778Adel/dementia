@@ -26,7 +26,10 @@ class AuthRemoteDataSource {
     );
 
     // Once signed in, return the UserCredential
-    return await FirebaseAuth.instance.signInWithCredential(credential);
+    return await FirebaseAuth.instance.signInWithCredential(credential).timeout(
+       const Duration(seconds: 30),onTimeout: (){
+      throw(Exception('it took too long time to connect please check your connectivity and try again'));
+    });
   }
 
   /// sign in with face book
@@ -62,7 +65,7 @@ class AuthRemoteDataSource {
     }
   }
 
-  /// verifying user phone number
+  /// verifying user phone number first approach
   Future<String> verifyPhoneNumber({required String phoneNumber}) async {
     final completer = Completer<String>();
     await sl<FirebaseAuth>().verifyPhoneNumber(
@@ -86,7 +89,7 @@ class AuthRemoteDataSource {
         });
     return completer.future;
   }
-
+/// verifying phone number second approach
   Future<void> verifyPhoneNumberTest({
     required String phoneNumber,
     required void Function(PhoneAuthCredential) verificationCompleted,

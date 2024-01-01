@@ -11,6 +11,12 @@ class StringsEn extends Strings {
   String get home => 'home';
 
   @override
+  String get scan => 'scan';
+
+  @override
+  String get offers => 'offers';
+
+  @override
   String get setting => 'settings';
 
   @override
@@ -78,4 +84,7 @@ class StringsEn extends Strings {
 
   @override
   String get cancel => 'cancel';
+
+  @override
+  String get shake => 'Shake phone to find nearest station ';
 }

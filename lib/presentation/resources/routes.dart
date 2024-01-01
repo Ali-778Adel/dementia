@@ -17,7 +17,7 @@ class AppRoutes{
     if(settings.name=='/'){
       return MaterialPageRoute(builder: (context)=> LoginPage());
     }else if(settings.name=='homePage') {
-      return MaterialPageRoute(builder: (context)=>const HomeScreen());
+      return MaterialPageRoute(builder: (context)=>const MainRouteScreen());
     }else if(settings.name=='phonePage'){
       return MaterialPageRoute(builder: (context)=> AddPhoneNumberScreen());
     }

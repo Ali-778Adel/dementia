@@ -1,6 +1,8 @@
 {
   "language": "Language",
   "home":"home",
+  "scan": "scan",
+  "offers": "offers",
   "setting":"settings",
   "ali": "ali",
   "themes":"Theme",
@@ -23,7 +25,9 @@
   "logout": "logout",
   "logOutMessage": "Do you want to logout!",
   "yes": "yes",
-  "cancel":"cancel"
+  "cancel":"cancel",
+  "shake":"Shake phone to find nearest station "
+
 
 
 }

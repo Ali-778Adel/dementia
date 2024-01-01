@@ -80,7 +80,10 @@ dependencies:
   http: ^0.13.5
   file_picker: ^5.2.5
   permission_handler: ^10.2.0
-
+  # carousel slider
+  carousel_slider: 4.2.1
+  #shake
+  shake: ^2.2.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -110,6 +113,7 @@ flutter:
     - assets/icons/google.png
     - assets/photos/phone.png
     - assets/photos/splash1.png
+    - assets/photos/petrol.png
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

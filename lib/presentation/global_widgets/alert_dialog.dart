@@ -10,14 +10,16 @@ class MyAlertDialog{
  final Function()onConfirm;
   MyAlertDialog({required this.context,required this.bodyText,required this.onConfirm});
   void call(){
-    showDialog(context: context,
+    showDialog(
+        context: context,
         builder: (context){
       return Center(
         child: Container(
           height: 20.h,
           width: 60.w,
           decoration: BoxDecoration(
-            color: Palette.primary,
+            border: Border.all(color: Palette.black10),
+            color: Palette.hint,
             boxShadow:const [
               BoxShadow(
                 offset: Offset(10, 10),
@@ -37,7 +39,7 @@ class MyAlertDialog{
               Row(
                 children: [
                   Expanded(child:  Center(child: TextButton(child: Text(Strings.of(context)!.cancel,style: Theme.of(context).textTheme.bodySmall,),onPressed: ()=>Navigator.pop(context),))),
-                  const Divider(color: Palette.white,),
+                  const Divider(color: Palette.black,thickness: 2,),
                   Expanded(child:  Center(child: TextButton(onPressed: onConfirm,child: Text(Strings.of(context)!.yes,style: Theme.of(context).textTheme.bodySmall),)))
                 ],
               )
@@ -46,7 +48,9 @@ class MyAlertDialog{
           ),
         ),
       );
-        });
+        }
+        ,barrierColor: Colors.transparent
+        );
   }
 
 }

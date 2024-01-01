@@ -6,7 +6,7 @@ import 'dimens.dart';
 /// Light theme
 ThemeData themeLight = ThemeData(
   fontFamily: 'Poppins',
-  primaryColor: Palette.primary,
+  primaryColor: Palette.green,
   disabledColor: Palette.disable,
   hintColor: Palette.hint,
   cardColor: Palette.white,
@@ -25,6 +25,7 @@ ThemeData themeLight = ThemeData(
     bodyText1: TextStyles.body1,
     bodyText2: TextStyles.body2,
     caption: TextStyles.caption,
+    headlineLarge: TextStyles.customHeader1,
     overline: TextStyles.overline,
     button: TextStyles.button,
   ),
@@ -53,6 +54,7 @@ ThemeData themeDark = ThemeData(
     headline6: TextStyles.h6.copyWith(color: Palette.white),
     subtitle1: TextStyles.subtitle1.copyWith(color: Palette.white),
     subtitle2: TextStyles.subtitle2.copyWith(color: Palette.white),
+    headlineLarge: TextStyles.customHeader1.copyWith(color: Palette.white),
     bodyText1: TextStyles.body1.copyWith(color: Palette.white),
     bodyText2: TextStyles.body2.copyWith(color: Palette.white),
     caption: TextStyles.caption.copyWith(color: Palette.white),
@@ -174,13 +176,19 @@ class TextStyles {
     letterSpacing: 0.4,
     color: Palette.text,
   );
-
   static TextStyle overline = TextStyle(
     fontSize: Dimens.overline,
     fontWeight: FontWeight.normal,
     decoration: TextDecoration.none,
     letterSpacing: 1.5,
     color: Palette.text,
+  );
+
+  static TextStyle customHeader1=const TextStyle(
+    fontWeight:FontWeight.bold,
+    fontFamily: 'Poppins',
+    fontSize: 24,
+    color: Palette.text
   );
 }
 

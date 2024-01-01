@@ -11,6 +11,12 @@ class StringsAr extends Strings {
   String get home => 'الرئيسية';
 
   @override
+  String get scan => 'مسح';
+
+  @override
+  String get offers => 'العروض';
+
+  @override
   String get setting => 'الاعدادات';
 
   @override
@@ -78,4 +84,7 @@ class StringsAr extends Strings {
 
   @override
   String get cancel => 'الغاء الامر';
+
+  @override
+  String get shake => 'رُج الهاتف \nابحث عن اقرب محطة ';
 }

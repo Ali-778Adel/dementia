@@ -105,6 +105,18 @@ abstract class Strings {
   /// **'home'**
   String get home;
 
+  /// No description provided for @scan.
+  ///
+  /// In en, this message translates to:
+  /// **'scan'**
+  String get scan;
+
+  /// No description provided for @offers.
+  ///
+  /// In en, this message translates to:
+  /// **'offers'**
+  String get offers;
+
   /// No description provided for @setting.
   ///
   /// In en, this message translates to:
@@ -242,6 +254,12 @@ abstract class Strings {
   /// In en, this message translates to:
   /// **'cancel'**
   String get cancel;
+
+  /// No description provided for @shake.
+  ///
+  /// In en, this message translates to:
+  /// **'Shake phone to find nearest station '**
+  String get shake;
 }
 
 class _StringsDelegate extends LocalizationsDelegate<Strings> {
